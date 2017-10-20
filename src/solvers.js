@@ -58,26 +58,54 @@ window.findNRooksSolution = function(n) {
   var col = 0;
   
   var search = function(grid) {
-    //debugger;
-      grid.togglePiece(row, col);//00
-      row++;//1
-  debugger;
-        grid.togglePiece(row, col);
-        console.log('befire');
-        if (grid.hasColConflictAt(col)) {
-          console.log('2');
-          console.log('check');
-          grid.togglePiece(row, col);//remove
-          col++;
-          grid.togglePiece(row, col);//set again
+  //   //debugger;
+  //     grid.togglePiece(row, col);//00
+  //     row++;//1
+  // debugger;
+  //       grid.togglePiece(row, col);
+  //       console.log('befire');
+  //       if (grid.hasColConflictAt(col)) {
+  //         console.log('2');
+  //         console.log('check');
+  //         grid.togglePiece(row, col);//remove
+  //         col++;
+  //         grid.togglePiece(row, col);//set again
           
-      }
+  //     }
+  //   }
+  //   search(grid);
+   // if col = n && col+1 === undefine
+   //    console.log('passed');
+  // if first time()
+  //    toggle (0,0)
+  // increase row by 1 
+  // increase col by 1 
+  // if no collisoin
+    // toggle pos =(1,1); 
+  // recall it self  
+   
+    if (col === n && col + 1 === undefined) {
+      console.log('passed');
     }
-    search(grid);
+    grid.togglePiece(row, col);
+    //console.log('check');
+    row++;
+    col++;
+    if (!grid.hasColConflictAt(col) && grid.hasColConflictAt(col + 1) !== undefined) {
+     debugger;
+     console.log(`col + 1 ${col+1} `);
+     console.log(`this is row${row}, this is col ${col}, this n ${n}`);
+//debugger;
+      grid.togglePiece(row, col);
+      console.log('why is it breaking');
+    }
+     
+   
+  
   };
   
   
-  console.log(board);
+  //console.log(board);
   search(board);
   
   // console.log(makeBoard);
@@ -88,9 +116,10 @@ window.findNRooksSolution = function(n) {
 
   console.log('Single solution for ' + n + ' rooks:', JSON.stringify(solution));
   return solution;
-
-
 };
+
+
+
 //console.log(findNRooksSolution(3));
 
 
