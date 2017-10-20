@@ -239,3 +239,11 @@
   };
 
 }());
+
+// var gettit = makeBoard.get(3);
+// var setIt = makeBoard.set(gettit[0] , 2);
+// console.log(makeBoard);
+// console.log(gettit, 'get it');
+// console.log(setIt, 'set it');
+
+

@@ -13,14 +13,86 @@
 
 // return a matrix (an array of arrays) representing a single nxn chessboard, with n rooks placed such that none of them can attack each other
 
+// var makeEmptyMatrix = function(n) {
+//   return _(_.range(n)).map(function() {
+//     return _(_.range(n)).map(function() {
+//       return 0;
+//     });
+//   });
+// };
+
+
+//make empty board n size
+//var rook = 1 [0,0,0] = [1,0,0]
+//place rook 
+
+/*
+var rook = 1
+[0,0,0]<
+[0,0,0]
+[0,0,0]
+
+var function itt(board,nr,nc){
+  nr = 0 nc = 0 which looks at 1st array
+   if (nr)
+   arr[nr][nc] = rook >>[1,0,0]
+    arr[nr][nc]
+
+ 
+    nr++
+    nc++
+
+
+}
+
+
+*/
 
 
 window.findNRooksSolution = function(n) {
+
+  var board = new Board({n: n});
   var solution = undefined; //fixme
+  //var makeBoard = new Board({n: n});
+  var row = 0;
+  var col = 0;
+  
+  var search = function(grid) {
+    //debugger;
+      grid.togglePiece(row, col);//00
+      row++;//1
+  debugger;
+        grid.togglePiece(row, col);
+        console.log('befire');
+        if (grid.hasColConflictAt(col)) {
+          console.log('2');
+          console.log('check');
+          grid.togglePiece(row, col);//remove
+          col++;
+          grid.togglePiece(row, col);//set again
+          
+      }
+    }
+    search(grid);
+  };
+  
+  
+  console.log(board);
+  search(board);
+  
+  // console.log(makeBoard);
+  // makeBoard.togglePiece(1, 2);
+  // console.log(makeBoard);
+  // makeBoard.togglePiece(1, 2);
+  // console.log(makeBoard,'toogle off');
 
   console.log('Single solution for ' + n + ' rooks:', JSON.stringify(solution));
   return solution;
+
+
 };
+//console.log(findNRooksSolution(3));
+
 
 // return the number of nxn chessboards that exist, with n rooks placed such that none of them can attack each other
 window.countNRooksSolutions = function(n) {
